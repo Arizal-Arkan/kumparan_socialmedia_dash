@@ -58,6 +58,42 @@ const api = {
             'Content-type': 'application/json; charset=UTF-8',
         }
     }),
+
+    sendPost: async (payload) => await host.post(`posts`, payload, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
+
+    deletePost: async (userId) => await host.delete(`posts/${userId}`, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
+
+    updatePost: async (userId, payload) => await host.put(`posts/${userId}`, payload, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
+
+    sendComment: async (payload) => await host.post(`comments`, payload, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
+
+    deleteComment: async (userId) => await host.delete(`comments/${userId}`, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
+
+    updateComment: async (userId, payload) => await host.put(`comments/${userId}`, payload, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
 }
 
 export default api;

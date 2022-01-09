@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react'
 import '../../css/page.css'
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 
 //Redux
@@ -12,14 +9,7 @@ import { getUsers } from '../../redux/actions';
 //Component
 import Avatar from '../../components/Avatar';
 
-const useStyles = makeStyles({
-    input: {
-        color: "white"
-    }
-});
-
 function Home() {
-    const classes = useStyles();
     const dispatch = useDispatch();
 
     useEffect(() => {
