@@ -1,13 +1,60 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import '../../css/page.css'
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { makeStyles } from "@material-ui/core/styles";
+import { Link } from 'react-router-dom';
+
+//Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../redux/actions';
+
+//Component
+import Avatar from '../../components/Avatar';
+
+const useStyles = makeStyles({
+    input: {
+        color: "white"
+    }
+});
 
 function Home() {
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [dispatch])
+
+    const eState = useSelector((state) => state.home);
+
+    const { dataUsers } = eState;
+
     return (
         <div>
-            <h1>What on your mind ?</h1>
-            <div style={{ width: '70%', backgroundColor: '#2b2f38', height: '300px', borderRadius: '30px', margin: '0 auto' }}>
-                <TextField />
+            { /* List Users */}
+            <div>
+                <h1>List Users</h1>
+                <div className='list-card'>
+                    {dataUsers && dataUsers?.map((val, i) => {
+                        return (
+                            <Link className='card-container' key={i} to={`detail-user/${val.id}`}>
+                                <div>
+                                    <Avatar name={val.name} />
+                                    <div>
+                                        <p>{`${val?.name}`}</p>
+                                        <p>{`${val?.username}`}</p>
+                                    </div>
+                                </div>
+                                <p><span>Email:</span> {`${val?.email}`}</p>
+                                <p><span>Phone:</span> {`${val?.phone}`}</p>
+                            </Link>
+
+                        )
+                    })}
+                </div>
             </div>
+
         </div>
     )
 }

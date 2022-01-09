@@ -1,0 +1,55 @@
+.text-contain {
+    width: 70%;
+    background-color: #2b2f38;
+    height: 250px;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.card-container {
+    width: 300px;
+    background-color: #2b2f38;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 20px 20px 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card-container-detail {
+    width: 300px;
+    background-color: #2b2f38;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.card-container-detail > div {
+    display: flex;
+    align-items: center;
+}
+
+.card-container-detail > div > div > p {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.card-container > div {
+    display: flex;
+    align-items: center;
+}
+
+.card-container > div > div > p {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.list-card {
+    display: flex;
+    flex-wrap: wrap;
+}
